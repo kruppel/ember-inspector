@@ -267,7 +267,7 @@ var ViewDebug = Ember.Object.extend(PortMixin, {
       isComponent: (view instanceof Ember.Component)
     };
 
-    if (!(view instanceof Ember.Component)) {
+    if (controller && !(view instanceof Ember.Component)) {
       value.controller = {
         name: controllerName(controller),
         objectId: this.retainObject(controller)
@@ -390,7 +390,7 @@ var ViewDebug = Ember.Object.extend(PortMixin, {
       output += "<p class='template'><span>template</span>=<span data-label='layer-template'>" + escapeHTML(templateName) + "</span></p>";
     }
 
-    if (!(view instanceof Ember.Component)) {
+    if (controller && !(view instanceof Ember.Component)) {
       output += "<p class='controller'><span>controller</span>=<span data-label='layer-controller'>" + escapeHTML(controllerName(controller)) + "</span></p>";
       output += "<p class='view'><span>view</span>=<span data-label='layer-view'>" + escapeHTML(viewName(view)) + "</span></p>";
     } else {
